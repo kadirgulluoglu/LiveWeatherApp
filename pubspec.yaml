@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  http:
+  geolocator: ^8.2.0
 
 dev_dependencies:
   flutter_test:
