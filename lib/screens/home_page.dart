@@ -51,6 +51,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             );
+          }
+          if (snapshot.hasError) {
+            return Center(child: Text("Apiden veri çekilemedi"));
           } else {
             return buildLoadingIndicator();
           }
