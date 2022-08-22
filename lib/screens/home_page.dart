@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Center buildSnapshotHasErrorWidget() =>
-      const Center(child: const Text("Apiden veri çekilemedi"));
+      const Center(child: Text("Apiden veri çekilemedi"));
 
   info() async {
     var position = await getPosition();
@@ -337,7 +337,7 @@ class _HomePageState extends State<HomePage> {
 
   Image buildBackgroundImage() {
     return Image.asset(
-      imgUrl!,
+      imgUrl,
       fit: BoxFit.cover,
       height: double.infinity,
       width: double.infinity,
