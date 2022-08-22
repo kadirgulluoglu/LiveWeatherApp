@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
             );
           }
           if (snapshot.hasError) {
-            return Center(child: Text("Apiden veri çekilemedi"));
+            return buildSnapshotHasErrorWidget();
           } else {
             return buildLoadingIndicator();
           }
@@ -61,6 +61,9 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  Center buildSnapshotHasErrorWidget() =>
+      const Center(child: Text("Apiden veri çekilemedi"));
 
   info() async {
     var position = await getPosition();
@@ -290,7 +293,7 @@ class _HomePageState extends State<HomePage> {
                           width: 10,
                         ),
                         Text(
-                          "Day" " • " + data.condition,
+                          "Day" " • " + data.condition.toString(),
                           style: const TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w500,
@@ -307,7 +310,7 @@ class _HomePageState extends State<HomePage> {
                           width: 10,
                         ),
                         Text(
-                          "Night" " • " + data.condition,
+                          "Night" " • " + data.condition.toString(),
                           style: const TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w500,
