@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:weather_app/api/weather_api.dart';
 import 'package:weather_app/models/weather_model.dart';
@@ -20,7 +22,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String? imgUrl;
+  String imgUrl = "assets/images/night.jpg";
 
   Weather data = Weather();
   @override
@@ -63,7 +65,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Center buildSnapshotHasErrorWidget() =>
-      const Center(child: Text("Apiden veri çekilemedi"));
+      const Center(child: const Text("Apiden veri çekilemedi"));
 
   info() async {
     var position = await getPosition();
@@ -117,8 +119,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Center buildLoadingIndicator() =>
-      const Center(child: CircularProgressIndicator(color: primary));
+  Stack buildLoadingIndicator() => Stack(
+        children: [
+          buildBackgroundImage(),
+          BackdropFilter(
+              filter: ImageFilter.blur(sigmaY: 3, sigmaX: 3),
+              child: Container()),
+          const Center(child: CircularProgressIndicator(color: white)),
+        ],
+      );
 
   Column buildWeatherDetails() {
     return Column(
