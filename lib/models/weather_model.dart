@@ -2,13 +2,11 @@ class Weather {
   String? cityName;
   String? icon;
   int? isDay;
-  var temp;
-  var humidity;
-  var wind;
-  var windDirection;
-  var lastUpdate;
-  var condition;
-  var cloud;
+  double? temp;
+  int? humidity;
+  double? wind;
+  String? condition;
+  int? cloud;
   Weather(
       {this.cityName,
       this.icon,
@@ -24,10 +22,8 @@ class Weather {
     condition = json['current']['condition']['text'];
     temp = json['current']['temp_c'];
     wind = json['current']['wind_kph'];
-    windDirection = json['current']['wind_dir'];
     humidity = json['current']['humidity'];
     isDay = json['current']['is_day'];
-    lastUpdate = json['current']['last_updated'];
     cloud = json['current']['cloud'];
   }
 }
